@@ -1,32 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <button @click="show">show message</button>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Vue from "vue";
+import YUI from "./components/message";
 
-#nav {
-  padding: 30px;
+Vue.use(YUI);
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+// import { Message } from "./components/message";
+export default {
+  methods: {
+    show() {
+      // console.log(Message);
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+      //invoke as a component
+      // Message.success({
+      //   message: "hell0",
+      //   duration: 3000,
+      // });
+
+      //invoke as js api  this.$message
+      this.$message.success({ message: "diy message " });
+    },
+  },
+};
+</script>
